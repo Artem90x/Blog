@@ -18,11 +18,11 @@ public class PostComment {
 
     @ManyToOne
     @JoinColumn(name = "parent_id", nullable = false)
-    private Post parentId;
+    private PostComment parentId;
 
     @ManyToOne(optional=false)
     @JoinColumn(name = "post_id", nullable = false)
-    private Post postId;
+    private Post post;
 
     @ManyToOne(optional=false)
     @JoinColumn(name = "user_id", nullable = false)

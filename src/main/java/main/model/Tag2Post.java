@@ -16,11 +16,11 @@ public class Tag2Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @OneToOne(targetEntity = Post.class, cascade = CascadeType.ALL)
+    @ManyToOne(targetEntity = Post.class)
     @JoinColumn(name = "post_id", nullable=false, referencedColumnName = "id")
-    private Integer post;
+    private Post post;
 
-    @OneToOne(targetEntity = Tag.class, cascade = CascadeType.ALL)
+    @OneToOne(targetEntity = Tag.class)
     @JoinColumn(name = "tag_id", nullable=false, referencedColumnName = "id")
     private Integer tag;
 }

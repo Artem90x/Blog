@@ -42,13 +42,13 @@ public class Post {
     @Column(name = "view_count", nullable = false)
     private int viewCount;
 
-    @OneToMany(mappedBy="post", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy="post", fetch=FetchType.EAGER)
     private List<Tag2Post> tags;
 
-    @OneToMany(mappedBy="post", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy="post")
     private List<PostVote> postVotes;
 
-    @OneToMany(mappedBy="post", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy="post")
     private List<PostComment> comments;
 
 }
