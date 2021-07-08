@@ -1,15 +1,14 @@
 spring:
   jpa:
-    database: POSTGRESQL
+    database: MySQL
     show-sql: false
     hibernate:
       ddl-auto: none
   datasource:
-    platform: postgres
-    url: jdbc:postgresql://localhost:5432/Blog?useUnicode=true&characterEncoding=utf8&createDatabaseIfNotExist=true
-    username: postgres
+    platform: mysql
+    url: jdbc:${CLEARDB_DATABASE_URL:mysql://localhost:3306/blog?createDatabaseIfNotExist=true}
+    username: root
     password: 1321
-    driverClassName: org.postgresql.Driver
 server:
   port: 8080
   servlet:

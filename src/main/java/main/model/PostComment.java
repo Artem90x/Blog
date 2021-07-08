@@ -16,14 +16,15 @@ public class PostComment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "parent_id")
-    private Integer parentId;
+    @ManyToOne
+    @JoinColumn(name = "parent_id", nullable = false)
+    private Post parentId;
 
-    @ManyToOne(optional=false, cascade=CascadeType.ALL)
+    @ManyToOne(optional=false)
     @JoinColumn(name = "post_id", nullable = false)
     private Post postId;
 
-    @ManyToOne(optional=false, cascade=CascadeType.ALL)
+    @ManyToOne(optional=false)
     @JoinColumn(name = "user_id", nullable = false)
     private User userId;
 

@@ -26,7 +26,7 @@ public class Post {
     @Column(name = "moderation_status")
     private ModerationStatus moderationStatus;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
@@ -42,13 +42,13 @@ public class Post {
     @Column(name = "view_count", nullable = false)
     private int viewCount;
 
-    @OneToMany(mappedBy="post")
+    @OneToMany(mappedBy="post", cascade = CascadeType.ALL)
     private List<Tag2Post> tags;
 
-    @OneToMany(mappedBy="post")
+    @OneToMany(mappedBy="post", cascade = CascadeType.ALL)
     private List<PostVote> postVotes;
 
-    @OneToMany(mappedBy="post")
+    @OneToMany(mappedBy="post", cascade = CascadeType.ALL)
     private List<PostComment> comments;
 
 }

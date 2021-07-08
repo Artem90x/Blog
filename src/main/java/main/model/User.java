@@ -17,7 +17,7 @@ public class User {
     private int id;
 
     @Column(name = "is_moderator", nullable = false)
-    private boolean isModerator;
+    private int isModerator;
 
     @Column(name = "reg_time", nullable = false)
     private LocalDateTime regTime;
