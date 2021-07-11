@@ -16,7 +16,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "is_moderator", nullable = false)
+    @Column(name = "is_moderator", nullable = false, columnDefinition = "tinyint NOT NULL COMMENT")
     private int isModerator;
 
     @Column(name = "reg_time", nullable = false)

@@ -1,8 +1,13 @@
 package main.model;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@Data
+@NoArgsConstructor
 @Entity
 @Table(name = "post_votes")
 public class PostVote {
@@ -22,6 +27,6 @@ public class PostVote {
     @Column(name = "time", nullable = false)
     private LocalDateTime time;
 
-    @Column(name = "value", nullable = false)
+    @Column(name = "value", columnDefinition = "BIT", nullable = false)
     private byte value;
 }

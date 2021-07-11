@@ -3,7 +3,7 @@ spring:
     database: MySQL
     show-sql: false
     hibernate:
-      ddl-auto: none
+      ddl-auto: validate
   datasource:
     platform: mysql
     url: jdbc:${CLEARDB_DATABASE_URL:mysql://localhost:3306/blog?createDatabaseIfNotExist=true}

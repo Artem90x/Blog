@@ -22,5 +22,5 @@ public class Tag2Post {
 
     @OneToOne(targetEntity = Tag.class)
     @JoinColumn(name = "tag_id", nullable=false, referencedColumnName = "id")
-    private Integer tag;
+    private Tag tag;
 }

@@ -23,7 +23,7 @@ public class Post {
     private Boolean isActive;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "moderation_status")
+    @Column(name = "moderation_status", columnDefinition = "enum('NEW','ACCEPTED','DECLINED') default 'NEW'")
     private ModerationStatus moderationStatus;
 
     @ManyToOne
@@ -36,7 +36,7 @@ public class Post {
     @Column(name = "title", nullable = false)
     private String title;
 
-    @Column(name = "text", nullable = false)
+    @Column(name = "text", nullable = false, columnDefinition = "TEXT")
     private String text;
 
     @Column(name = "view_count", nullable = false)
@@ -50,5 +50,4 @@ public class Post {
 
     @OneToMany(mappedBy="post")
     private List<PostComment> comments;
-
 }

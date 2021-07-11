@@ -18,7 +18,7 @@ public class PostComment {
 
     @ManyToOne
     @JoinColumn(name = "parent_id", nullable = false)
-    private PostComment parentId;
+    private PostComment postComment;
 
     @ManyToOne(optional=false)
     @JoinColumn(name = "post_id", nullable = false)
@@ -26,11 +26,11 @@ public class PostComment {
 
     @ManyToOne(optional=false)
     @JoinColumn(name = "user_id", nullable = false)
-    private User userId;
+    private User user;
 
     @Column(name = "time", nullable = false)
     private LocalDateTime time;
 
-    @Column(nullable = false)
+    @Column(name = "text", nullable = false, columnDefinition = "TEXT")
     private String text;
 }
