@@ -16,3 +16,11 @@ server:
       max-file-size: 10MB
       max-request-size: 10MB
       enabled: true
+
+blog:
+  title: DevPub
+  subtitle: Рассказы разработчиков
+  phone: +7 999 888-77-66
+  email: mail@mail.ru
+  copyright: Иван Иванов
+  copyrightFrom: 2021

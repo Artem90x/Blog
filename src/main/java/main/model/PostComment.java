@@ -1,36 +1,36 @@
 package main.model;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import javax.validation.constraints.NotNull;
+import java.util.Date;
 
 @Data
-@NoArgsConstructor
 @Entity
 @Table(name = "post_comments")
 public class PostComment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @NotNull
+    private int id;
 
-    @ManyToOne
-    @JoinColumn(name = "parent_id", nullable = false)
-    private PostComment postComment;
+    @Column(name = "parent_id")
+    private Integer parentId;
 
-    @ManyToOne(optional=false)
+    @ManyToOne(optional=false, cascade=CascadeType.ALL)
     @JoinColumn(name = "post_id", nullable = false)
     private Post post;
 
-    @ManyToOne(optional=false)
+    @ManyToOne(optional=false, cascade=CascadeType.ALL)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @Column(name = "time", nullable = false)
-    private LocalDateTime time;
+    @NotNull
+    private Date time;
 
-    @Column(name = "text", nullable = false, columnDefinition = "TEXT")
+    @Column(columnDefinition = "text")
+    @NotNull
     private String text;
 }

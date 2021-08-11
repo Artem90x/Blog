@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -31,7 +31,7 @@ public class Post {
     private User user;
 
     @Column(name = "time", nullable = false)
-    private LocalDateTime time;
+    private Date time;
 
     @Column(name = "title", nullable = false)
     private String title;
@@ -50,4 +50,7 @@ public class Post {
 
     @OneToMany(mappedBy="post")
     private List<PostComment> comments;
+
+    @OneToMany(mappedBy="post")
+    private List<PostVote> like;
 }

@@ -4,10 +4,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import javax.validation.constraints.NotNull;
+import java.util.Date;
 
 @Data
-@NoArgsConstructor
 @Entity
 @Table(name = "post_votes")
 public class PostVote {
@@ -25,7 +25,8 @@ public class PostVote {
     private Post post;
 
     @Column(name = "time", nullable = false)
-    private LocalDateTime time;
+    @NotNull
+    private Date time;
 
     @Column(name = "value", columnDefinition = "BIT", nullable = false)
     private byte value;
