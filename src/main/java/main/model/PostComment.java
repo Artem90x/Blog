@@ -16,9 +16,6 @@ public class PostComment {
     @NotNull
     private int id;
 
-    @Column(name = "parent_id")
-    private Integer parentId;
-
     @ManyToOne(optional=false, cascade=CascadeType.ALL)
     @JoinColumn(name = "post_id", nullable = false)
     private Post post;
